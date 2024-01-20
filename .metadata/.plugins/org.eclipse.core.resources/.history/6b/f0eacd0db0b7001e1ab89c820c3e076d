@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+<style type="text/css">
+
+body {
+    height: 100vh;
+    background:  url('https://photo.coolenjoy.co.kr/data/editor/2005/thumb-Bimg_d97eac2abeb8757ed5a8eba3aa66d886_9esq.jpg') no-repeat center;
+    background-size: cover;
+}
+
+</style>
+</head>
+<body>
+<jsp:include page="layout/header.jsp"></jsp:include>
+<jsp:include page="layout/nav.jsp"></jsp:include>
+<jsp:include page="layout/footer.jsp"></jsp:include>
+
+
+
+</body>
+</html>
+
+

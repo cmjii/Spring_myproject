@@ -1,0 +1,38 @@
+package com.myproject.www.handler;
+
+import com.myproject.www.domain.PagingVO;
+
+public class PagingHandler {
+	
+	private int startPage; //시작번호
+	private int endPage; //끝 번호
+	private boolean prev,next; 
+	
+	private int totalCount; //총 게시글 수
+	private PagingVO pgvo;
+	
+	
+	//생성자에서 모든 값을 설정
+	public PagingHandler(PagingVO pgvo, int totalCount) {
+		this.pgvo=pgvo;
+		this.totalCount=totalCount;
+		
+		// 1 ~ 10 / 11 ~ 20 / 21 ~ 30
+		// 1부터 10까지 endPage는 변함없이 10이어야 함.
+		// 1 2 3 4 ... 10 / 10 나머지를 올려서(ceil) 1로 만듬 * 10
+		this.endPage = (int)Math.ceil(pgvo.getPageNo() / (double)pgvo.getQty())*pgvo.getQty();
+		this.startPage = endPage - 9;
+		
+		//실제 마지막 페이지
+		//전체 글 수 / 한 페이지에 표시되는 게시글 수 -> 올림
+		int realEndPage=(int)Math.ceil(totalCount/(double)pgvo.getQty())*pgvo.getQty();
+		
+		if(realEndPage < endPage) {
+			this.endPage = realEndPage;
+		}
+		
+		this.prev = this.startPage>1; //this.startPage>1 == true, 1이하면 false
+		this.
+	}
+
+}

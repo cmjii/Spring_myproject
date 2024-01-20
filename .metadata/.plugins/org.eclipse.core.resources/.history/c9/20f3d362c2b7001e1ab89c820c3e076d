@@ -1,0 +1,19 @@
+document.getElementById('emailBtn').addEventListener('click', () => {
+    let inemail = document.getElementById('email').value;
+    
+    getEmailregister(inemail).then(result=>{
+        if(result === '1' || inemail == '' || inemail== null|| !(inemail.contains("@"))){
+            alert("사용할 수 없는 이메일입니다.");
+        }else{
+            alert("사용 가능한 이메일입니다.");
+        }
+    })
+
+});
+
+async function getEmailregister(inemail){
+    const resp = await fetch("/member/"+inemail);
+    const result = await resp.text();
+    return result;
+}
+

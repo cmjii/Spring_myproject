@@ -1,0 +1,44 @@
+document.getElementById('re').disabled=true;
+
+document.getElementById('emailBtn').addEventListener('click', () => {
+    let inemail = document.getElementById('email').value;
+    getEmailregister(inemail).then(result=>{
+        console.log(result);
+        if(result === inemail || inemail == '' || inemail== null|| !(inemail.includes("@"))){
+            alert("사용할 수 없는 이메일입니다.");
+            document.getElementById('re').disabled=true;
+        }else{
+            alert("사용 가능한 이메일입니다.");
+            document.getElementById('re').disabled=false;
+        }
+    })
+
+});
+
+async function getEmailregister(inemail){
+    try {
+        const resp = await fetch("/member/"+inemail);
+        const result = await resp.json();
+        return result.email;
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+document.getElementById('pw1').addEventListener('input', () => {
+    let pass1 = document.getElementById('pw1');
+    let pass2 = document.getElementById('pw2');
+    let div = document.getElementById('passZone');
+
+    if (pass1 && pass2 && div) {
+        // 요소들이 존재할 때만 처리
+        if (pass1.value === pass2.value) {
+            div.innerText = '비밀번호가 일치합니다.';
+        } else {
+            div.innerText = '비밀번호가 일치하지 않습니다.';
+        }
+    } else {
+        console.error('One or more elements not found');
+    }
+});
