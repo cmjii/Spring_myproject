@@ -1,0 +1,11 @@
+package com.myproject.www.repository;
+
+import com.myproject.www.domain.BoardVO;
+
+public interface BoardDAO {
+
+	int insert(BoardVO bvo);
+
+	long selectbno();
+
+}

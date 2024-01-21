@@ -1,0 +1,12 @@
+package com.myproject.www.repository;
+
+import com.myproject.www.security.MemberVO;
+
+public class MemberDAO {
+
+	public MemberVO selectEmail(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

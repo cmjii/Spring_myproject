@@ -1,0 +1,8 @@
+package com.myproject.www;
+
+public class java {
+	
+	String version = org.springframework.core.SpringVersion.getVersion();
+	System.out.println("version : " + version);
+
+}

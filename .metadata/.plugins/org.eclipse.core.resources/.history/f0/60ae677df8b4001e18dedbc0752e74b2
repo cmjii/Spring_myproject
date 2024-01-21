@@ -1,0 +1,55 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<jsp:include page="../layout/header.jsp"></jsp:include>
+<jsp:include page="../layout/nav.jsp"></jsp:include>
+
+<br>
+<div class="container-sm">
+<h2 style="font-family: 'Jua', sans-serif;">글쓰기</h2>
+<br>
+<form class="row g-3" action="/board/register">
+  <div class="col-12">
+    <label for="inputEmail4" class="form-label">제목</label>
+    <input type="email" class="form-control" id="inputEmail4">
+  </div>
+  <div class="col-12">
+    <label for="inputPassword4" class="form-label">작성자</label>
+    <input type="password" class="form-control" id="inputPassword4">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">내용</label>
+<!--     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"> -->
+    <textarea rows="30" cols="10" class="form-control"></textarea>
+  </div>
+	
+</form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<jsp:include page="../layout/footer.jsp"></jsp:include>

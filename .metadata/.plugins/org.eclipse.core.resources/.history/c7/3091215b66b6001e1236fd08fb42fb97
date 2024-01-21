@@ -1,0 +1,13 @@
+package com.myproject.www.service;
+
+import com.myproject.www.security.MemberVO;
+
+public interface MemberService {
+
+	boolean updateLastLogin(String authEmail);
+
+	int insert(MemberVO mvo);
+
+	int selectEmail(String email);
+
+}

@@ -1,0 +1,38 @@
+package com.myproject.www.controller;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.myproject.www.handler.FileHandler;
+import com.myproject.www.security.MemberVO;
+import com.myproject.www.service.BoardService;
+import com.myproject.www.service.MemberService;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Controller
+@Slf4j
+@RequiredArgsConstructor
+@RequestMapping("/member/*")
+public class MemberController {
+
+	private final MemberService msv;
+	
+	private final BCryptPasswordEncoder bcryptEncode;
+	
+	@GetMapping("/register")
+	public void register() {}
+	
+	@PostMapping("/register")
+	public String register(MemberVO mvo) {
+		log.info("mvo >>>>>>>>>>>>>> "+ mvo);
+		String encpass = bcryptEncode.encode(mvo.getPwd());
+		mvo.setPwd(encpass);
+		int isok = msv.insert(mvo);
+		return "index";
+	}
+}

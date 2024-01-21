@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <!DOCTYPE html>
+<jsp:include page="../layout/header.jsp"></jsp:include>
+<jsp:include page="../layout/nav.jsp"></jsp:include>
+
+
+<div class="container-md" style="max-width: 1100px; border: 0.5px solid gray; padding: 50px; border-radius: 20px;">
+<h2 style="font-family: 'Jua', sans-serif;">글보기</h2>
+<br>
+
+
+
+
+</div>

@@ -1,0 +1,9 @@
+package com.myproject.www.service;
+
+import com.myproject.www.domain.BoardDTO;
+
+public interface BoardService {
+
+	int insert(BoardDTO boardDTO);
+
+}

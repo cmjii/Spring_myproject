@@ -1,0 +1,39 @@
+package com.myproject.www.service;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.myproject.www.repository.MemberDAO;
+import com.myproject.www.security.MemberVO;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@Slf4j
+@RequiredArgsConstructor
+public class MemberServiceImpl implements MemberService{
+	private final MemberDAO mdao;
+	
+	@Override
+	public boolean updateLastLogin(String authEmail) {
+		// TODO Auto-generated method stub
+		return mdao.updateLastLogin(authEmail) >0? true:false;
+	}
+
+	@Override
+	@Transactional
+	public int insert(MemberVO mvo) {
+		
+		int isok = mdao.selectOne(mvo.getEmail());
+		
+		if(isok>0) {
+			return 0;
+		}else {
+			mdao.insert(mvo);
+		    mdao.Authinsert(mvo);
+			return 1;
+		}
+	}
+
+}

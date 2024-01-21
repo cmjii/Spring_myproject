@@ -1,0 +1,10 @@
+INDEX VERSION 1.4+C:\Users\EZENIC-165\Downloads\Spring_myproject-main (1)\Spring_myproject-main\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1615652013.index
+430850670.index
+2480199788.index
+3040475903.index
+3048451607.index
+4285349773.index
+603182324.index
+1809427563.index
+2284174792.index

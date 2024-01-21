@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<jsp:include page="../layout/header.jsp"></jsp:include>
+<jsp:include page="../layout/nav.jsp"></jsp:include>
+
+<div class="container">
+<h2 style="font-family: 'Jua', sans-serif; text-align: center;">회원 리스트</h2><br>
+<div class="row">
+<c:forEach items="${list } var="mvo">
+<div class="card col">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${mvo.nickName }</h5>
+    <p class="card-text">이메일 : ${mvo.email }</p>
+    <p class="card-text">가입날짜 : ${mvo.regAt }</p>
+    <p class="card-text">마지막 로그인 : ${mvo.lastLogin }</p>
+    
+      </div>
+</div>
+</c:forEach>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<jsp:include page="../layout/footer.jsp"></jsp:include>

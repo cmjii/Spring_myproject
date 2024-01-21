@@ -1,0 +1,96 @@
+package com.myproject.www.config;
+
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
+import com.myproject.www.security.CustomAuthMemberService;
+import com.myproject.www.security.LoginFailureHandler;
+import com.myproject.www.security.LoginSuccessHandler;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Configuration
+@Slf4j
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter{ //상속 받아 환경설정
+	
+	//webConfig에 security클래스 등록
+	
+	//비밀번호 암호화 객체 passwordEncoder
+	@Bean
+	public PasswordEncoder bcPasswordEncoder() { 
+		return new BCryptPasswordEncoder(); 
+	}
+	
+	//SucessHandler => 사용자 커스텀 생성
+	@Bean
+	public AuthenticationSuccessHandler authSuccessHandler() {
+		return new LoginSuccessHandler();
+	}
+	
+	//FailureHandler => 사용자 커스텀 생성
+	@Bean
+	public AuthenticationFailureHandler authFailureHandler() {
+		return new LoginFailureHandler();
+	}
+	
+	//UserDetail => 사용자 커스텀 생성
+	@Bean
+	public UserDetailsService customUserService() {
+		return new CustomAuthMemberService();
+	}
+	
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		// 인증 되는 객체 설정
+		auth.userDetailsService(customUserService()).passwordEncoder(bcPasswordEncoder());
+	}
+	
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		// 화면에서 설정되는 권한에 따른 주소 맵핑 설정
+		//crsf() 공격에 대한 설정 막기 (복잡해서 잠깐 막아놓음 개인적으로 해보는 거 추천)
+		http.csrf().disable();
+		
+		//승인요청
+		//antMatchers : 접근을 허용하는 값
+		//permitAll() :누구나 접근 가능하는 경로
+		//authenticated() : 인증된 사용자만 가능
+		http.authorizeRequests().antMatchers("/member/list").hasRole("ADMIN")
+		.antMatchers("/","/board/list","/board/detail","/comment/**","/upload/**","/resources/**","/member/register","/member/login")
+		.permitAll().anyRequest().authenticated();
+		
+		
+		//커스텀 로그인 페이지 구성
+		//controller에 주소요청 맵핑이 같이 있어야 함 (필수)
+		http.formLogin().usernameParameter("email").passwordParameter("pwd").loginPage("/member/login").successHandler(authSuccessHandler()).failureHandler(authFailureHandler());
+		
+		//로그아웃 페이지
+		//반드시 method = "post"
+		http.logout().logoutUrl("/member/logout").invalidateHttpSession(true).deleteCookies("JSESSIONID").logoutSuccessUrl("/");
+
+	}
+	
+	
+	@Override
+	protected UserDetailsService userDetailsService() {
+		// TODO Auto-generated method stub
+		return super.userDetailsService();
+	}
+
+
+	
+	
+	
+	
+}
