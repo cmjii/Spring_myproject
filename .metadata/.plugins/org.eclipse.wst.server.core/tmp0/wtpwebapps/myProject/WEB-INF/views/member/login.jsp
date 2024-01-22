@@ -14,9 +14,7 @@
   <label for="exampleFormControlInput1" class="form-label">이메일</label>
   <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
 </div>
-<div class="mb-3">
-  <button type="button" class="btn btn-warning">이메일 확인</button>
-</div>
+
 <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">비밀번호</label>
   <input type="password" name="pwd" class="form-control" id="exampleFormControlInput1" placeholder="PassWord">

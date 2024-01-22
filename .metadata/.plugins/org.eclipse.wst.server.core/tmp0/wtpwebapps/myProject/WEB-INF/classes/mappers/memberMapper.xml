@@ -7,7 +7,7 @@
 	<select id="selectEmail" resultType="com.myproject.www.security.MemberVO">
 		select * from member where email = #{email}
 	</select>
-	<select id="select" resultType="String">
+	<select id="select" resultType="int">
 		select * from member where email = #{email}
 	</select>
 	
@@ -46,5 +46,9 @@
 	<delete id="authdelete">
 		delete from auth_member where email = #{email}
 	</delete>
+	
+	<select id="selectOne" resultType="String">
+		select email from member;
+	</select>
 	
 </mapper>

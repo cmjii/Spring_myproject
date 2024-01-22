@@ -25,9 +25,9 @@ document.addEventListener('change',(e)=>{
         //첨부파일에 대한 정보를 fileZone에 기록
         let div = document.getElementById('fileZone');
         div.innerHTML='';
-        let ul = `<ul class="list-group">`;
         //isok로 통과 불통과 구분
         let isok = 1;
+        let ul = `<ul class="list-group">`;
         for(let file of fileObject){
             let validresult = fileValidation(file.name, file.size);
             isok *= validresult;

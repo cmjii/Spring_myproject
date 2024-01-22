@@ -24,8 +24,8 @@
 </div><br>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
   <button type="submit" class="btn btn-outline-success">수정</button>
-<a href="/"><button type="button"class="btn btn-outline-secondary" style="float: right;">돌아가기</button></a>
 <a href="/member/remove"><button type="button"class="btn btn-outline-danger" style="float: right;">회원탈퇴</button></a>
+<a href="/"><button type="button"class="btn btn-outline-secondary" style="float: right;">돌아가기</button></a>
 </div>
 </form>
 </div>

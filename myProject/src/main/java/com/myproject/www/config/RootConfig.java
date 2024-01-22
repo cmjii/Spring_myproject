@@ -36,7 +36,7 @@ public class RootConfig {
 		// log4jdbc-log4j2 
 		hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy"); 
 		hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/mywebdb");
-		hikariConfig.setUsername("root");
+		hikariConfig.setUsername("mywebUser");
 		hikariConfig.setPassword("mysql");
 		
 		hikariConfig.setMaximumPoolSize(5); //최대 커넥션 개수

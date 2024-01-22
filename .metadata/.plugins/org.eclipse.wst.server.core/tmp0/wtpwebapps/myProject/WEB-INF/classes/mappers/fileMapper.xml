@@ -8,4 +8,16 @@
 		insert into file (uuid, save_dir, file_name, file_type, bno, file_size) values(#{uuid}, #{saveDir}, #{fileName}, #{fileType}, #{bno}, #{fileSize})
 	</insert>
 	
+	<select id="getFlist" resultType="com.myproject.www.domain.FileVO">
+		select * from file where bno = #{bno}
+	</select>
+	
+	<select id="selectListAllFile" resultType="com.myproject.www.domain.FileVO">
+		select * from file
+	</select>
+	
+	<delete id="removeFile">
+		delete from file where uuid=#{uuid}
+	</delete>
+	
 </mapper>

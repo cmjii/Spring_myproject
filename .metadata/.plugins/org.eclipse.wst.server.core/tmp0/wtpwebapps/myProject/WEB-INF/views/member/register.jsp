@@ -14,19 +14,25 @@
     <input type="email" name="email" class="form-control" id="email" placeholder="Email">
   </div>
   <div class="col-auto">
-    <button type="submit" class="btn mb-3 btn-warning" id="emailBtn">이메일 확인</button>
+    <button type="button" class="btn btn-light" id="emailBtn">이메일 확인</button>
   </div>
 
 <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">비밀번호</label>
-  <input type="password" name="pwd" class="form-control" id="exampleFormControlInput1" placeholder="PassWord">
+  <input type="password" name="pwd" id="pw1" class="form-control" id="exampleFormControlInput1" placeholder="PassWord">
 </div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">비밀번호 확인</label>
+  <input type="password" id="pwd2" class="form-control" id="exampleFormControlInput1" placeholder="PassWord">
+</div>
+<div class="mb-3 text-danger" id="passZone"></div>
+
 <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">닉네임</label>
   <input type="text" name="nickName" class="form-control" id="exampleFormControlInput1" placeholder="Nick_name">
 </div><br>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <button type="submit" class="btn btn-outline-success">가입</button>
+  <button type="submit" id="re" class="btn btn-outline-success">가입</button>
 <a href="/"><button type="button"class="btn btn-outline-secondary" style="float: right;">돌아가기</button></a>
 </div>
 </form>

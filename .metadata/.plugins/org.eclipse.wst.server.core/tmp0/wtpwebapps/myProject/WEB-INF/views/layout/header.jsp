@@ -19,6 +19,6 @@
 <body>
 
 <div class="container-xxl text-center" style="padding: 40px;">
-<h1 style="font-family: 'Jua', sans-serif; font-size: 50px;">Welcome My Project!</h1>
+<h1 style="font-family: 'Jua', sans-serif; font-size: 50px;"><a href="/" style="color: black; ">Welcome My Project!</a></h1>
 </div>
 
